@@ -1,6 +1,7 @@
 extern crate cc;
 
 fn main(){
+    // g++ コンパイル設定
     cc::Build::new()
         .cpp(true)
         .warnings(true)
@@ -15,6 +16,7 @@ fn main(){
         .include("src/cpp/include")
         .compile("libfsw.a");
 
+    // ライブラリのリンク
     println!("cargo:rustc-link-search=native=/usr/local/lib");
     println!("cargo:rustc-link-lib=fswatch");
 }
